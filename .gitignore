@@ -1,0 +1,13 @@
+#data
+/non_target_dev
+/non_target_train
+/target_dev
+/target_train
+
+#archives
+*.zip
+*.tar
+*.tgz
+
+#libraries
+ikrlib.py
