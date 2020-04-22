@@ -5,7 +5,8 @@ required = [
     "non_target_train",
     "target_dev",
     "target_train",
-    "SUR_HMM.ipynb",
+    "sur_hmm.ipynb",
+    "sur_lgbm"
     "ikrlib.py",
 ]
 
