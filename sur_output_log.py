@@ -30,8 +30,18 @@ def add_image_scores(decisions):
     output_log.image_decision = decisions
 
 def work_results():
-    # print(output_log.audio_file)
-    for name, t_score, nt_score, a_dec, i_dec in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_non_target_score, output_log.audio_decision, output_log.image_decision):
-        print(name, t_score, nt_score, a_dec, i_dec)
+    # soubor s klasifikaci ciste audia, should be final
+    only_audio_file = open("audio_only_classification", "w")
+    for name, t_score, a_dec in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_decision):
+        log_line = name + " " + str(t_score) + " " + str(a_dec) + "\n"
+        only_audio_file.write(log_line)
+    only_audio_file.close()
+
+    # soubor s klasifikaci ciste obrazku, nema score, jen decision, nevim kde to cislo dostat TODO
+    only_image_file = open("image_only_classification", "w")
+    for name, i_dec in zip(output_log.image_file, output_log.image_decision):
+        log_line = name + " None " + str(i_dec) + "\n"
+        only_image_file.write(log_line)
+    only_image_file.close()
     pass
 
