@@ -1,5 +1,6 @@
 import numpy as np
 from hmmlearn import hmm
+from sur_output_log import add_audio_scores
 
 # Class to handle all HMM related processing
 class HMMTrainer(object):
@@ -45,8 +46,10 @@ class HMMBinaryModel:
         predictions = []
         for targetScore, nonTargetScore in zip(targetScores, nonTargetScores):
             if(targetScore > nonTargetScore):
+                add_audio_scores(targetScore, nonTargetScore, 1)
                 predictions.append(1)
             else:
+                add_audio_scores(targetScore, nonTargetScore, 0)
                 predictions.append(0)
         
         return predictions

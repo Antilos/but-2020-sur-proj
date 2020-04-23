@@ -36,7 +36,7 @@ def main():
     args = handleArguments()
 
     #Rea ddata
-    XImgTrain, yImgTrain = loadEdgesDataFromDirs(target=args.targetTrainDir, nonTarget=args.nonTargetTrainDir)
+    XImgTrain, yImgTrain = loadEdgesDataFromDirs(True, target=args.targetTrainDir, nonTarget=args.nonTargetTrainDir)
 
     XAudioTargetTrain = extractMFCCFromDir(args.targetTrainDir)
     # yAudioTargetTrain = [1 for i in range(len(XAudioTargetTrain))]

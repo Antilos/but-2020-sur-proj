@@ -23,6 +23,9 @@ from sur_feature_extraction import extractListOfMFCCFromDir
 from sur_hmm_model import HMMTrainer
 from sur_hmm_model import HMMBinaryModel
 
+from sur_output_log import work_results
+from sur_output_log import add_image_scores
+
 logging.basicConfig(level=logging.DEBUG)
 
 def predictionOutput(audioPredictions, audioY, imagePredictions, imageY):
@@ -52,7 +55,7 @@ def main():
     hmmClassifier = pickle.load(args.hmmModel)
 
     #Read dev data
-    XImgDev, yImgDev = loadEdgesDataFromDirs(target=args.targetDevDir, nonTarget=args.nonTargetDevDir)
+    XImgDev, yImgDev = loadEdgesDataFromDirs(False, target=args.targetDevDir, nonTarget=args.nonTargetDevDir)
 
     XAudioTargetDev = extractListOfMFCCFromDir(args.targetDevDir)
     yAudioTargetDev = [1 for i in range(len(XAudioTargetDev))]
@@ -65,7 +68,9 @@ def main():
 
     audioPredictions = hmmClassifier.predict(XAudioTargetDev + XAudioNonTargetDev)
     imagePredictions = np.round(lgbmClassifier.predict(XImgDev))
+    add_image_scores(imagePredictions)
 
     predictionOutput(audioPredictions, yAudioTargetDev+yAudioNonTargetDev, imagePredictions, yImgDev)
+    work_results()
 
 main()

@@ -15,6 +15,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import accuracy_score
 
 def loadEdgesDataFromDirs(**dirNames):
+    # this is not called? if this was ever called, output log could not be working
     #Image dimensions
     imH = 80
     imW = 80
