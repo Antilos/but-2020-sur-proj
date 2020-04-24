@@ -34,7 +34,7 @@ def add_image_scores(score, decisions):
 def work_results():
     # soubor s klasifikaci ciste audia, should be final
     only_audio_file = open("audio_only_classification", "w")
-    for name, t_score, a_dec in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_decision):
+    for name, t_score, nt_score, a_dec in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_non_target_score, output_log.audio_decision):
         log_line = name + " " + str(t_score) + " " + str(a_dec) + "\n"
         only_audio_file.write(log_line)
     only_audio_file.close()
@@ -45,6 +45,13 @@ def work_results():
         log_line = name + " " + str(score) + " " + str(i_dec) + "\n"
         only_image_file.write(log_line)
     only_image_file.close()
-    print(len(output_log.image_file), len(output_log.image_score), len(output_log.image_decision))
-    pass
 
+    # vytvoreni celkovych vysledku
+    both_file = open("audio_and_image_classification", "w")
+    for file_name, audio_target_score, audio_non_target_score, image_score, audio_decision, image_decision in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_non_target_score, output_log.image_score, output_log.audio_decision, output_log.image_decision):
+        # TODO dat dohromady vysledky
+        pass
+        # TODO odkomentovat, misto do both_score a both_decision dát výsledky
+        # log_line = file_name + " " + str(both_score) + " " + str(both_decision) + "\n"
+        # both_file.write(log_line)
+    both_file.close()
