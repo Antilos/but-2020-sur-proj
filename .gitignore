@@ -143,6 +143,7 @@ cython_debug/
 /non_target_train
 /target_dev
 /target_train
+/eval
 
 #archives
 *.zip
@@ -163,9 +164,13 @@ SURTest.ipynb
 Data Visualization.ipynb
 speekeridentification.py
 
+
 #Draber ignores
 Gargamel
 one.txt
 two.txt
 three.txt
 four.txt
+
+#idea trash
+.idea*
