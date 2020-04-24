@@ -6,7 +6,7 @@ The program attempts to match an audio sample of a person's voice and an image o
 
 ## How to run:
 
-Required packages and their version can be found in the *requirements.txt* file.
+Required packages and their version can be found in the *requirements.txt* file.<br>
 If any packages are missing or are of an incorrect version please run:
 
 > pip install -r requirements.txt
@@ -15,7 +15,7 @@ If .model files are missing or the models need re-training
 
 > python make.py train
 
-For training place training data in the *target_train/* or *non_target_train* folders based on whether the data
+For training place training data in the *target_train/* or *non_target_train/* folders based on whether the data
 is to be expected to be a hit or not.
 
 To run evaluation:
