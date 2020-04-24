@@ -162,3 +162,10 @@ settings.json
 SURTest.ipynb
 Data Visualization.ipynb
 speekeridentification.py
+
+#Draber ignores
+Gargamel
+one.txt
+two.txt
+three.txt
+four.txt
