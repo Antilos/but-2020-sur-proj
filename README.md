@@ -1,6 +1,6 @@
 # SUR Image and Sound recogniction software
 
-Team members: xdrabe09, xlebod00, xstrna14, xzilka11
+#### Team members: xdrabe09, xlebod00, xstrna14, xzilka11
 
 **Assignment**: https://www.fit.vutbr.cz/study/courses/SUR/public/projekt_2019-2020/SUR_projekt2019-2020.txt
 
