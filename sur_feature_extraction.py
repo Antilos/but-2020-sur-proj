@@ -9,6 +9,32 @@ from python_speech_features import mfcc
 
 from sur_output_log import add_audio_file, add_image_file
 
+def loadEdgesDataFromDirsUnsorted(**dirNames):
+    # Image dimensions
+    imH = 80
+    imW = 80
+    # Thresholding for canny edge detection
+    minVal = 50
+    maxVal = 250
+    X = np.array([])
+
+    for label, dirName in dirNames.items():
+        for f in glob.glob(dirName + '/*.png'):
+            # adds log about the file for output
+            add_image_file(f)
+            img = cv2.imread(f, cv2.IMREAD_GRAYSCALE)
+            img = img[:imH + 1, :imW + 1]  # crop
+            edges = cv2.Canny(img, minVal, maxVal)  # extract edges
+            edges = edges.reshape(np.prod(edges.shape))  # flatten
+
+            # append
+            if len(X) == 0:
+                X = edges
+            else:
+                X = np.vstack((X, edges))
+
+    return X
+
 def loadEdgesDataFromDirs(train, **dirNames):
     #Image dimensions
     imH = 80

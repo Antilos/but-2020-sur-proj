@@ -4,6 +4,7 @@ class OutputLog:
         self.image_file = []
         self.audio_target_score = []
         self.audio_non_target_score = []
+        self.image_score = []
         self.audio_decision = []
         self.image_decision = []
 
@@ -26,7 +27,8 @@ def add_audio_scores(target_score, non_target_score, decision):
     output_log.audio_non_target_score.append(non_target_score)
     output_log.audio_decision.append(decision)
 
-def add_image_scores(decisions):
+def add_image_scores(score, decisions):
+    output_log.image_score = score
     output_log.image_decision = decisions
 
 def work_results():
@@ -39,9 +41,10 @@ def work_results():
 
     # soubor s klasifikaci ciste obrazku, nema score, jen decision, nevim kde to cislo dostat TODO
     only_image_file = open("image_only_classification", "w")
-    for name, i_dec in zip(output_log.image_file, output_log.image_decision):
-        log_line = name + " None " + str(i_dec) + "\n"
+    for name, score, i_dec in zip(output_log.image_file, output_log.image_score, output_log.image_decision):
+        log_line = name + " " + str(score) + " " + str(i_dec) + "\n"
         only_image_file.write(log_line)
     only_image_file.close()
+    print(len(output_log.image_file), len(output_log.image_score), len(output_log.image_decision))
     pass
 

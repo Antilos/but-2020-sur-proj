@@ -18,6 +18,7 @@ def main():
     nonTargetTrainDir = "non_target_train"
     targetDevDir = "target_dev"
     nonTargetDevDir = "non_target_dev"
+    testDir = "eval"
 
     hmmModelFilename = "hmm.model"
     lgbmModelFilename = "lgbm.model"
@@ -26,6 +27,8 @@ def main():
         print("DING")
         subprocess.run(["python", trainingScript, "--targetTrainDir", targetTrainDir, "--nonTargetTrainDir", nonTargetTrainDir, "--hmmModelOutput", hmmModelFilename, "--lgbmModelOutput", lgbmModelFilename])
     elif(args.target == 'eval'):
-        subprocess.run(["python", classifyScript, "--targetDevDir", targetDevDir, "--nonTargetDevDir", nonTargetDevDir, "--hmmModel", hmmModelFilename, "--lgbmModel", lgbmModelFilename])
-
+        # pro eval skutecnych neroztrizenych dat
+        subprocess.run(["python", classifyScript, "--testDir", testDir, "--hmmModel", hmmModelFilename, "--lgbmModel", lgbmModelFilename, "--unsorted"])
+        # pro eval roztridenych dat
+        # subprocess.run(["python", classifyScript, "--targetDevDir", targetDevDir, "--nonTargetDevDir", nonTargetDevDir, "--hmmModel", hmmModelFilename, "--lgbmModel", lgbmModelFilename, "--unsorted"])
 main()
