@@ -1,4 +1,5 @@
 from math import log10
+import re
 
 class OutputLog:
     def __init__(self):
@@ -37,6 +38,7 @@ def work_results():
     # soubor s klasifikaci ciste audia, should be final
     only_audio_file = open("audio_only_classification", "w")
     for name, t_score, nt_score, a_dec in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_non_target_score, output_log.audio_decision):
+        name = re.sub(r'^eval[\\\/]','', name)
         log_line = name + " " + str(t_score) + " " + str(a_dec) + "\n"
         only_audio_file.write(log_line)
     only_audio_file.close()
@@ -44,6 +46,7 @@ def work_results():
     # soubor s klasifikaci ciste obrazku, nema score, jen decision, nevim kde to cislo dostat TODO
     only_image_file = open("image_only_classification", "w")
     for name, score, i_dec in zip(output_log.image_file, output_log.image_score, output_log.image_decision):
+        name = re.sub(r'^eval[\\\/]','', name)
         log_line = name + " " + str(score) + " " + str(i_dec) + "\n"
         only_image_file.write(log_line)
     only_image_file.close()
@@ -64,7 +67,7 @@ def work_results():
         if both_score < 0.45: both_decision = 0
         else: both_decision = 1
 
-        
+        file_name = re.sub(r'^eval[\\\/]','', file_name)
         log_line = file_name + " " + str(both_score) + " " + str(both_decision) + "\n"
         both_file.write(log_line)
     both_file.close()
