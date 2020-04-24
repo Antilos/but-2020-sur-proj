@@ -145,6 +145,14 @@ cython_debug/
 /target_train
 /eval
 
+# output files
+audio_only_classification
+image_only_classification
+audio_and_image_classification
+
+# models
+*.model
+
 #archives
 *.zip
 *.tar

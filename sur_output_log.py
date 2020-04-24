@@ -1,3 +1,5 @@
+from math import log10
+
 class OutputLog:
     def __init__(self):
         self.audio_file = []
@@ -49,9 +51,20 @@ def work_results():
     # vytvoreni celkovych vysledku
     both_file = open("audio_and_image_classification", "w")
     for file_name, audio_target_score, audio_non_target_score, image_score, audio_decision, image_decision in zip(output_log.audio_file, output_log.audio_target_score, output_log.audio_non_target_score, output_log.image_score, output_log.audio_decision, output_log.image_decision):
-        # TODO dat dohromady vysledky
-        pass
-        # TODO odkomentovat, misto do both_score a both_decision dát výsledky
-        # log_line = file_name + " " + str(both_score) + " " + str(both_decision) + "\n"
-        # both_file.write(log_line)
+        
+        if audio_decision: audio_score = audio_target_score
+        else: audio_score = audio_non_target_score
+
+        # transform score to a more workable scale
+        # audio_score /= 600000
+
+        # if not audio_decision: audio_score = log10(1 - 10**audio_score)
+
+        both_score = (audio_decision + image_score)/2
+        if both_score < 0.45: both_decision = 0
+        else: both_decision = 1
+
+        
+        log_line = file_name + " " + str(both_score) + " " + str(both_decision) + "\n"
+        both_file.write(log_line)
     both_file.close()
