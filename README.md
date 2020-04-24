@@ -2,7 +2,8 @@
 
 **Assignment**: https://www.fit.vutbr.cz/study/courses/SUR/public/projekt_2019-2020/SUR_projekt2019-2020.txt
 
-The program attempts to match an audio sample of a person's voice and an image of their face to the corresponding person.
+The program attempts to match an audio sample of a person's voice and an image of their face to the corresponding person.<br>
+For audio detection we chose the HMM clasificator and for image recogniction we chose the lightgbm clasificator.<br>
 
 ## How to run:
 
