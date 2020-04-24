@@ -2,7 +2,12 @@
 
 **Assignment**: https://www.fit.vutbr.cz/study/courses/SUR/public/projekt_2019-2020/SUR_projekt2019-2020.txt
 
+The program attempts to match an audio sample of a person's voice and an image of their face to the corresponding person.
+
 ## How to run:
+
+Required packages and their version can be found in the *requirements.txt* file.
+If any packages are missing or are of an incorrect version please run:
 
 > pip install -r requirements.txt
 
