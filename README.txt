@@ -1,9 +1,14 @@
 SUR Image and Sound recogniction software
 
-Team members: xdrabe09, xkocal00, xlebod00, xstrna14, xzilka11,
+Team members: xdrabe09, xkocal00, xlebod00, xstrna14, xzilka11
 
 The program attempts to match an audio sample of a person's voice and an image of their face to the corresponding person.
 For audio detection we chose the HMM clasificator and for image recogniction we chose the lightgbm clasificator.
+
+Results can be found in:
+	audio_only_classification
+	image_only_classification
+	audio_and_image_classification
 
 How to run: (all need to be run from src/ dir!)
 

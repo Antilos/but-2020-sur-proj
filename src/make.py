@@ -24,7 +24,7 @@ def main():
     lgbmModelFilename = "lgbm.model"
 
     if(args.target == 'train'):
-        print("DING")
+        # print("DING")
         subprocess.run(["python", trainingScript, "--targetTrainDir", targetTrainDir, "--nonTargetTrainDir", nonTargetTrainDir, "--hmmModelOutput", hmmModelFilename, "--lgbmModelOutput", lgbmModelFilename])
     elif(args.target == 'eval'):
         # pro eval skutecnych neroztrizenych dat
