@@ -14,11 +14,11 @@ def main():
     trainingScript = "sur_train.py"
     classifyScript = "sur_classify.py"
 
-    targetTrainDir = "target_train"
-    nonTargetTrainDir = "non_target_train"
-    targetDevDir = "target_dev"
-    nonTargetDevDir = "non_target_dev"
-    testDir = "eval"
+    targetTrainDir = "../target_train"
+    nonTargetTrainDir = "../non_target_train"
+    targetDevDir = "../target_dev"
+    nonTargetDevDir = "../non_target_dev"
+    testDir = "../eval"
 
     hmmModelFilename = "hmm.model"
     lgbmModelFilename = "lgbm.model"
